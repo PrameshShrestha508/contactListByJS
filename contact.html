@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .removeTodo{
+          padding: 3px 7px;
+          background: rgb(255, 0, 43);
+          font-family: "Montserrat",sans-serif;
+          border: none;
+          color: #fff;
+          font-size: 10px;
+          font-weight: bold;
+          border-radius:3px;
+          cursor: pointer;
+            margin-top:15px;
+        }
+        
+        
+            </style>
+        
+    <title>Contact list</title>
+  </head>
+  <body>
+<div class="container mt-4">
+    <h1 class="display-4 text-center">MY<span class="text-primary">Contact</span>List</h1>
+    <form id="contact-form">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" placeholder="Name" id="name" autocomplete="off">
+          </div>
+        <div class="form-group">
+            <label for="Address">Address</label>
+            <input type="text" class="form-control" id="address" placeholder="Address" autocomplete="off"> 
+          </div>
+
+          <div class="form-group">
+            <label for="Phone no">Phone No.</label>
+            <input type="text" class="form-control" id="phone" placeholder="Phone No." autocomplete="off">
+          </div>
+
+          <div class="row">
+            <div class="col-lg-6">
+                <input type="submit" value="Add Book" class="btn btn-primary btn-block">
+            </div>
+            <div class="col-lg-6">
+                <input type="reset" value="Reset" class="btn btn-danger btn-block">
+            </div>
+</form>
+<table class="table table-striped mt-5">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Phone No.</th>
+        <th><i class="fa fa-times" aria-hidden="true"></i></th>
+   
+      </tr>
+    </thead>
+
+    <tbody id="contactlist">
+        <!-- <tr>
+          <th scope="row">Pramesh shrestha</th>
+          <td>pharsatikar</td>
+          <td>9812736178</td>
+          <td>Remove</td>
+        </tr> -->
+     </tbody>
+     </table>
+</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script>
+        var Nname=document.querySelector("#name");
+        var address=document.querySelector("#address");
+        var phone=document.querySelector("#phone");
+        var button =document.querySelector(".btn");
+        var contactlist=document.querySelector("#contactlist");
+        
+        
+        button.addEventListener("click",function(e){
+        
+            e.preventDefault();
+        
+            if(Nname.value === "" && address.value == "" && phone.value== ""){
+        
+                alert("Enter any  input");
+        
+        
+            }else{
+        
+                var contactlistrow = document.createElement("tr");
+        
+        
+                var newName = document.createElement("td");
+                newName.innerHTML = Nname.value;
+                contactlistrow.appendChild(newName);
+        
+                var newAddress=document.createElement("td");
+                newAddress.innerHTML=address.value;
+                contactlistrow.appendChild(newAddress);
+        
+        
+                var newPhone=document.createElement("td");
+                newPhone.innerHTML=phone.value;
+                contactlistrow.appendChild(newPhone);
+        
+                var removeTodo = document.createElement('button');
+                removeTodo.setAttribute('class','removeTodo');
+                removeTodo.innerHTML ="Remove";
+                contactlistrow.appendChild(removeTodo);
+        
+        
+            removeTodo.addEventListener('click', function(e){
+              var target = e.target.parentNode;
+              target.remove();
+            })
+        
+        
+            contactlist.appendChild(contactlistrow);
+        
+        }
+        
+        })
+        </script> 
+        
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+</body>
+</html>
